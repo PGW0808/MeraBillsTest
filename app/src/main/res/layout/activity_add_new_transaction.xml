@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="transaction"
+            type="com.example.transactiontrack.model.Transaction" />
+
+        <variable
+            name="addTransactionHandler"
+            type="com.example.transactiontrack.handler.AddTransactionHandler" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@android:color/white"
+        tools:context=".AddNewTransaction">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Transaction"
+            android:textSize="22sp"
+            android:fontFamily="@font/maven"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <!-- Amount Input -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="@={transaction.amount}"
+            android:hint="Enter Amount"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:background="@android:drawable/edit_text"
+            android:textSize="16sp"/>
+
+        <!-- Dropdown for Payment Method -->
+        <Spinner
+            android:id="@+id/spinnerMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:popupTheme="@style/Widget.MaterialComponents.PopupMenu">
+
+        </Spinner>
+
+        <!-- Provider Input -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={transaction.provider}"
+            android:hint="Enter Provider (e.g., Paytm, HDFC)"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:background="@android:drawable/edit_text"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Submit Button -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{addTransactionHandler.onSubmitBtnclicked}"
+            android:text="Add Transaction"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:layout_marginTop="20dp"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</layout>

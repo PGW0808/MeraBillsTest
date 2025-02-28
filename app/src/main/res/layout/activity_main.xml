@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="redirect"
+            type="com.example.transactiontrack.handler.RedirectHandler" />
+
+        <variable
+            name="transactionAdapter"
+            type="com.example.transactiontrack.TransactionAdapter" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:fontFamily="@font/maven"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Transaction History" />
+
+        <TextView
+            android:id="@+id/textViewTotalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:fontFamily="@font/maven"
+            android:padding="10dp"
+            android:text="Total Amount"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{redirect.onAddClicked}"
+            android:text="Add New Transaction" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:fontFamily="@font/maven"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Payments" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerView" />
+
+
+
+    </LinearLayout>
+</layout>
